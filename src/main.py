@@ -26,7 +26,9 @@ class Day(Node):
         else:
             self.current = NIGHT
 
+        self.get_logger().info('Starting day with status: "%s"' % self.current)
         self.timer = self.create_timer(timer_period, self.timer_callback)
+
 
     def timer_callback(self):
 
@@ -49,8 +51,8 @@ class Day(Node):
             else:
                 change_msg.data = SUN_SET
         
-        self.publisher_.publish(change_msg)
-        self.get_logger().info('Publishing: "%s"' % change_msg.data)
+            self.publisher_.publish(change_msg)
+            self.get_logger().info('Publishing: "%s"' % change_msg.data)
         
         self.current = status_msg.data
         
