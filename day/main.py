@@ -1,4 +1,5 @@
 import rclpy
+import os
 from datetime import datetime
 from . import utils
 from rclpy.node import Node
@@ -10,9 +11,9 @@ DAY = 'day'
 NIGHT = 'night'
 NOON = 'noon'
 
-DAY_START = 8
-NOON = 12
-DAY_END = 22
+DAY_START = os.getenv('DAY_START',7) 
+NOON = os.getenv('NOON',12) 
+DAY_END = os.getenv('DAY_END',22) 
 
 class Day(Node):
 
@@ -26,6 +27,9 @@ class Day(Node):
             self.current = NIGHT
 
         self.get_logger().info('Starting day with status: "%s"' % self.current)
+        self.get_logger().info('DAY_START: "%d"' % DAY_START)
+        self.get_logger().info('DAY_END: "%d"' % DAY_END)
+        self.get_logger().info('NOON: "%d"' % NOON)
         self.timer = self.create_timer(timer_period, self.timer_callback)
 
 
