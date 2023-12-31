@@ -33,7 +33,7 @@ class Day(Node):
 
         is_day = self.is_day()
         status_msg = String()
-        if self.is_day:
+        if is_day:
             status_msg.data = DAY
         else:
             status_msg.data = NIGHT
@@ -43,7 +43,7 @@ class Day(Node):
 
         change_msg = String()
         if self.current != status_msg.data:
-            if self.is_day:
+            if is_day:
                 change_msg.data = SUN_RISE
             else:
                 change_msg.data = SUN_SET
