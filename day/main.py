@@ -11,9 +11,9 @@ DAY = 'day'
 NIGHT = 'night'
 NOON = 'noon'
 
-DAY_START = os.getenv('DAY_START',7) 
-NOON = os.getenv('NOON',12) 
-DAY_END = os.getenv('DAY_END',22) 
+DAY_START = int(os.getenv('DAY_START',7))
+NOON = int(os.getenv('NOON',12))
+DAY_END = int(os.getenv('DAY_END',22))
 
 class Day(Node):
 
